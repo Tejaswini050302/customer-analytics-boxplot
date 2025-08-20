@@ -29,8 +29,8 @@ data = {
 df = pd.DataFrame(data)
 
 # Create the boxplot
-plt.figure(figsize=(8, 8))  # 512x512 pixels
-box = sns.boxplot(
+plt.figure(figsize=(8, 8), dpi=64)  # 8 inches × 64 dpi = 512 px
+sns.boxplot(
     x="Customer Segment",
     y="Purchase Amount",
     data=df,
@@ -43,6 +43,6 @@ plt.title("Customer Purchase Amount Distribution by Segment", fontsize=16, weigh
 plt.xlabel("Customer Segment", fontsize=14)
 plt.ylabel("Purchase Amount ($)", fontsize=14)
 
-# Save the chart
-plt.savefig("chart.png", dpi=64, bbox_inches='tight')
+# Save the chart as exactly 512x512 px
+plt.savefig("chart.png", dpi=64)  # Do not use bbox_inches='tight'
 plt.close()
